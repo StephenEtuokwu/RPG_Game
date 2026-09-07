@@ -10,7 +10,6 @@ void Rooms::Basement(Warrior &temp)
 	Battle battle;
 	srand(time(0));
 	int randNum = rand() % 4;
-	randNum = 0;
 	cout << temp.getName() << " goes ventures into the basement. After going down the creaky stairs, something is sighted in the distance." << endl;
 	if (randNum == 0)
 	{
@@ -77,7 +76,6 @@ void Rooms::Attic(Warrior& temp)
 	Battle battle;
 	srand(time(0));
 	int randNum = rand() % 4;
-	randNum = 0;
 	cout << temp.getName() << " goes ventures into the attic. After going up the creaky stairs, something is sighted in the distance." << endl;
 	if (randNum <= 1)
 	{
@@ -126,9 +124,9 @@ void Rooms::Attic(Alchemist& temp)
 	int randNum = rand() % 4;
 	cout << temp.getName() << " goes ventures into the Attic. After going up the creaky stairs, you use a potion of night vision to help you see in the dim light." << endl;
 	cout << "After a while, you spot something in the distance" << endl;
-	if (randNum == 0)
+	if (randNum <= 1)
 	{
-		cout << "After closer inspection, it's revealed to be a recipie for a more potent verison of Potion Of Damaging (Deals an extra 3 damage, add 10% to poison)" << endl;
+		cout << "After closer inspection, it's revealed to be a recipe for a more potent verison of Potion Of Damaging (Deals an extra 3 damage, add 10% to poison)" << endl;
 		temp.setWeaponType("Potion Of Damaging+");
 		cout << temp.getName() << " leaves the attic and continues their journey with their upgraded Potion Of Damaging!" << endl;
 	}
@@ -147,7 +145,6 @@ void Rooms::puzzleRoom(Warrior& temp)
 	cout << "You run and run and run and run, until you find yourself in strange room. A Shrill voice from an unknown location booms:" << endl;
 	cout << "\"Hello there! Solve the puzzle, you're free to leave this illusion-scape, fail to solve this puzzle, and you will be punished""\"" << endl;
 	cout << "The puzzle is as follows: Find the sum of all 6 factors of 32" << endl;
-	cout << "Sounds easy enough right? Wrong, afterwards take the sqaure root of the sum, then square the sum. Good luck :)" << endl;
 	getline(cin,guess);
 	while (guess != "63")
 	{
