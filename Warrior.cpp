@@ -120,7 +120,7 @@ int Warrior::fistsOfFury()
 		{
 			if (getSkill() == "Gambler")
 			{
-				tempDamageDealt = (rand() % (static_cast<int>(ceil(maxDamage * 1.2)) + 1 - minDamage) + minDamage);
+				tempDamageDealt = (rand() % (static_cast<int>(ceil(maxDamage * 1.2)) + 1 - static_cast<int>(ceil(minDamage * .7))) + static_cast<int>(ceil(minDamage * .7)));
 				if (rand() % 5 == 0)
 				{
 					tempDamageDealt *= 2;
@@ -297,6 +297,10 @@ int Warrior::doubleSlash()
 				numSlash++;
 			}
 		}
+		if(getWeaponType() == "Iron Sword")
+			cout << endl << "You did a total of " << totalDamageDealt + 3 << " points of damage with your double slash!" << endl;
+		else 
+			cout << endl << "You did a total of " << totalDamageDealt << " points of damage with your double slash!" << endl;
 		damageDealt = totalDamageDealt;
 	}
 	return damageDealt;
@@ -304,14 +308,14 @@ int Warrior::doubleSlash()
 
 int Warrior::burningStrike()
 {
-	//Cast a fireball that does between 6 - 9 damage before modifiers
+	//Enflame your sword and slice the enemy that does between 5 and 8 damage before modifiers
 	lastMove = "Burning Strike";
 
 	srand(time(0));
 
 	double accuracy = 90;
 
-	if (getSkill() == "Husteler")
+	if (getSkill() == "Hustler")
 		accuracy *= .8;
 
 	double accuracyRoll = rand() % 100 + 1;
